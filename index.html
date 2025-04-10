@@ -68,10 +68,26 @@
             font-weight: 500;
             padding: 0.5rem;
             transition: color 0.3s;
+            position: relative;
         }
 
         nav ul li a:hover {
             color: var(--primary-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         section {
@@ -95,6 +111,19 @@
             text-align: center;
             margin-bottom: 2rem;
             color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         h3 {
@@ -114,24 +143,69 @@
             margin-bottom: 1rem;
             border: 3px solid white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         .hero {
             text-align: center;
             padding: 6rem 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1600x900') center/cover no-repeat;
+            position: relative;
             color: white;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070') center/cover no-repeat;
+            filter: blur(5px) brightness(40%);
+            z-index: -1;
+            transform: scale(1.1); /* Prevents blur from showing edges */
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             max-width: 800px;
             margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn {
@@ -142,11 +216,31 @@
             border-radius: 4px;
             text-decoration: none;
             font-weight: 500;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
         }
 
         .btn:hover {
-            background-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .projects {
@@ -168,14 +262,19 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .project-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
 
         .project-info {
@@ -203,6 +302,14 @@
             font-weight: 500;
             color: var(--secondary-color);
             border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .skill:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info {
@@ -210,12 +317,23 @@
             border-radius: 8px;
             padding: 2rem;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .contact-method {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateX(5px);
         }
 
         .contact-method i {
@@ -241,11 +359,21 @@
         .social-links a {
             color: white;
             font-size: 1.5rem;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-links a:hover {
-            color: var(--accent-color);
+            color: white;
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .education-item, .award-item {
@@ -254,6 +382,29 @@
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .education-item::before, .award-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--primary-color);
+            transition: height 0.3s ease;
+        }
+        
+        .education-item:hover::before, .award-item:hover::before {
+            height: 100%;
+        }
+        
+        .education-item:hover, .award-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .education-period, .award-year {
@@ -267,6 +418,12 @@
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .publication-title {
@@ -290,6 +447,7 @@
             text-decoration: none;
             font-weight: 500;
             margin-top: 0.5rem;
+            transition: all 0.3s ease;
         }
 
         .github-link i {
@@ -297,7 +455,8 @@
         }
 
         .github-link:hover {
-            text-decoration: underline;
+            color: var(--secondary-color);
+            transform: translateX(5px);
         }
 
         @media (max-width: 768px) {
@@ -344,7 +503,7 @@
     <section id="about" class="container">
         <h2>About Me</h2>
         <div class="about-content">
-            <img src="https://via.placeholder.com/150" alt="Dang Huu Phat" class="profile-img">
+            <img src="./public/phatt.jpg" alt="Dang Huu Phat" class="profile-img">
             <p>I am a passionate Computer Science student with a strong interest in Artificial Intelligence, Machine Learning, and Data Science. Currently enrolled in the Bachelor's Honors Program at the University of Information Technology - VNUHCM, I strive to apply computational thinking to solve real-world problems.</p>
             <p>With a background in mathematics and natural sciences, I've successfully participated in various competitions and developed projects that demonstrate my technical skills and innovative approach to challenges. I am constantly seeking opportunities to expand my knowledge and contribute to the field of technology.</p>
         </div>
@@ -416,7 +575,7 @@
                         <h3>Jobs Analysis and Recommendation</h3>
                         <p>Crawled job postings from TopCV and analyzed them to extract meaningful insights. Trained a salary prediction model and built a personalized job recommendation system.</p>
                         <p><strong>Technologies:</strong> Data Analysis, Machine Learning, Scikit-learn, Python, Git, LLM API, Streamlit</p>
-                        <a href="https://github.com/" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                        <a href="https://github.com/HuuPhat125/jobs-analysis-and-recommendation" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -425,7 +584,7 @@
                         <h3>The Video Query System</h3>
                         <p>Built a system for querying events from a massive video repository using text-based queries. Utilized the CLIP, BLIP models to vectorize frames extracted from videos, which are then used for storage and querying.</p>
                         <p><strong>Technologies:</strong> Python, Git, AI, Image retrieval</p>
-                        <a href="https://github.com/" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                        <a href="https://github.com/HuuPhat125/ImageRetrieval" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -434,7 +593,7 @@
                         <h3>Air Quality Monitoring</h3>
                         <p>Researched and developed an AI-powered air quality monitoring system using IoT sensors. Engaged over 500 active users across the website platform, Messenger chatbot, and Telegram. Showcased as one of the featured products at the 2024 Youth Fest organized by the Vietnam Youth Union.</p>
                         <p><strong>Technologies:</strong> Apps Script, Cloud Database, Firebase, AWS, HTML/Tailwind CSS, OpenAI API</p>
-                        <a href="#" class="github-link" target="_blank"><i class="fas fa-external-link-alt"></i>View Demo</a>
+                        <a href="https://enviwhisper.id.vn/" class="github-link" target="_blank"><i class="fas fa-external-link-alt"></i>View Demo</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -518,9 +677,9 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://github.com/HuuPhat" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/HuuPhat125" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/danghuuphat/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/phat_ang14302" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
             <p>&copy; 2025 Dang Huu Phat. All rights reserved.</p>
         </div>
@@ -564,6 +723,22 @@
                     link.classList.add('active');
                 }
             });
+        });
+        
+        // Reveal animations for elements when scrolled into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.project-card, .education-item, .award-item, .publication-item').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
         });
     </script>
 </body>
