@@ -1,148 +1,570 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trang cá nhân - Hữu Phát</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    :root {
-      --main-color: #0077cc;
-      --bg-light: #f5f7fa;
-      --bg-dark: #1e1e1e;
-      --text-light: #ffffff;
-      --text-dark: #333333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dang Huu Phat | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e3a8a;
+            --text-color: #1f2937;
+            --light-bg: #f1f5f9;
+            --border-color: #e2e8f0;
+            --accent-color: #3b82f6;
+        }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: var(--bg-dark);
-        color: var(--text-light);
-      }
-      header {
-        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      }
-      .card {
-        background: #2e2e2e;
-        color: white;
-      }
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
 
-    header {
-      width: 100%;
-      padding: 60px 20px 40px;
-      background: linear-gradient(to right, #0077cc, #00c6ff);
-      color: white;
-      text-align: center;
-    }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
 
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      margin-top: -75px;
-    }
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .card {
-      background: white;
-      max-width: 700px;
-      width: 90%;
-      margin: 20px auto;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
 
-    .social-links a {
-      margin: 0 10px;
-      font-size: 20px;
-      color: var(--main-color);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
 
-    .social-links a:hover {
-      color: #005999;
-    }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
 
-    .cv-button {
-      margin-top: 25px;
-      padding: 12px 28px;
-      background-color: var(--main-color);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
-      display: inline-block;
-    }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
 
-    .cv-button:hover {
-      background-color: #005fa3;
-    }
+        section {
+            padding: 4rem 0;
+        }
 
-    footer {
-      margin: 40px 0 20px;
-      font-size: 14px;
-      color: #777;
-      text-align: center;
-    }
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
 
-    @media screen and (max-width: 600px) {
-      .avatar {
-        width: 120px;
-        height: 120px;
-      }
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
 
-      .cv-button {
-        padding: 10px 20px;
-      }
-    }
-  </style>
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 6rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1600x900') center/cover no-repeat;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info p {
+            flex-grow: 1;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .skill {
+            background-color: var(--light-bg);
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-info {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .education-item, .award-item {
+            margin-bottom: 1.5rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .education-period, .award-year {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .publication-item {
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-date {
+            color: var(--accent-color);
+        }
+
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .github-link i {
+            margin-right: 0.5rem;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header class="hero">
+        <div class="container">
+            <h1>Dang Huu Phat</h1>
+            <p>Computer Science Student | AI Enthusiast | Problem Solver</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </header>
 
-  <header>
-    <h1>Đặng Hữu Phát</h1>
-    <p>💻 Data Scientist | 🔬 ML Enthusiast | 🚀 Web Dev</p>
-  </header>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <img class="avatar" src="./public/phatt.jpg" alt="avatar">
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/150" alt="Dang Huu Phat" class="profile-img">
+            <p>I am a passionate Computer Science student with a strong interest in Artificial Intelligence, Machine Learning, and Data Science. Currently enrolled in the Bachelor's Honors Program at the University of Information Technology - VNUHCM, I strive to apply computational thinking to solve real-world problems.</p>
+            <p>With a background in mathematics and natural sciences, I've successfully participated in various competitions and developed projects that demonstrate my technical skills and innovative approach to challenges. I am constantly seeking opportunities to expand my knowledge and contribute to the field of technology.</p>
+        </div>
+    </section>
 
-  <div class="card">
-    <p>Chào bạn! Tôi là Hữu Phát, đam mê Machine Learning, AI và xây dựng hệ thống thông minh giúp cải thiện cuộc sống. Mục tiêu của tôi là kết hợp sức mạnh dữ liệu và kỹ thuật phần mềm để tạo ra các sản phẩm có giá trị thực tế.</p>
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>University of Information Technology - VNUHCM</h3>
+                <div class="education-period">September 2022 – June 2026</div>
+                <p>Bachelor's Honors Program in Computer Science</p>
+                <p>GPA: 8.95/10.0</p>
+                <p>Coursework: Problem Solving Using Computational Thinking (University of Michigan); Applications of AI for Anomaly Detection (Nvidia)</p>
+            </div>
+            <div class="education-item">
+                <h3>Chu Van An High School for the Gifted, Binh Dinh</h3>
+                <div class="education-period">September 2020 – June 2022</div>
+                <p>GPA: 9.5/10.0</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="social-links">
-      <a href="https://github.com/HuuPhat125" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/danghuuphat/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:phatd142@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
+    <section id="awards">
+        <div class="container">
+            <h2>Awards & Achievements</h2>
+            <div class="award-item">
+                <p><strong>The First Prize in the Data Science Challenge (DSC) 2023</strong> for Solution of Smart City - Category A</p>
+            </div>
+            <div class="award-item">
+                <p><strong>Consolation Prize</strong> in the Artificial Intelligence Challenge (AI Challenge) Competition in 2024</p>
+            </div>
+            <div class="award-item">
+                <p><strong>Technology for Community Award</strong> at Hackdream for Techfuture Hackathon</p>
+            </div>
+            <div class="award-item">
+                <p><strong>The Third Prize</strong> in the National Chemistry Olympiad - 2022</p>
+            </div>
+            <div class="award-item">
+                <p><strong>Scholarship for Admission</strong> to the University of Information Technology - VNUHCM</p>
+            </div>
+            <div class="award-item">
+                <p><strong>Finalist</strong> in the Artificial Intelligence Challenge (AI Challenge) Competition in Ho Chi Minh City in 2023</p>
+            </div>
+            <div class="award-item">
+                <p><strong>TOEIC Listening & Reading Score:</strong> 665</p>
+            </div>
+        </div>
+    </section>
 
-    <a class="cv-button" href="./public/huuphat_newcv.pdf" target="_blank">📄 Tải CV</a>
-  </div>
+    <section id="publications">
+        <div class="container">
+            <h2>Publications</h2>
+            <div class="publication-item">
+                <div class="publication-title">AViSearch: A Multimodal Video Event Retrieval System via Query Enhancement and Optimized Keyframes</div>
+                <div class="publication-authors">Nguyen Huu Hoang Long, Huu Phat, Tran Thi Cam Giang, Tran Nhu Cam Nguyen, Phan Hoang Phuoc, Tien-Huy Nguyen</div>
+                <div class="publication-date">December 2024 (updating)</div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 Đặng Hữu Phát · Built with ❤️ and GitHub Pages
-  </footer>
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Jobs Analysis" class="project-img">
+                    <div class="project-info">
+                        <h3>Jobs Analysis and Recommendation</h3>
+                        <p>Crawled job postings from TopCV and analyzed them to extract meaningful insights. Trained a salary prediction model and built a personalized job recommendation system.</p>
+                        <p><strong>Technologies:</strong> Data Analysis, Machine Learning, Scikit-learn, Python, Git, LLM API, Streamlit</p>
+                        <a href="https://github.com/" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Video Query System" class="project-img">
+                    <div class="project-info">
+                        <h3>The Video Query System</h3>
+                        <p>Built a system for querying events from a massive video repository using text-based queries. Utilized the CLIP, BLIP models to vectorize frames extracted from videos, which are then used for storage and querying.</p>
+                        <p><strong>Technologies:</strong> Python, Git, AI, Image retrieval</p>
+                        <a href="https://github.com/" class="github-link" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Air Quality Monitoring" class="project-img">
+                    <div class="project-info">
+                        <h3>Air Quality Monitoring</h3>
+                        <p>Researched and developed an AI-powered air quality monitoring system using IoT sensors. Engaged over 500 active users across the website platform, Messenger chatbot, and Telegram. Showcased as one of the featured products at the 2024 Youth Fest organized by the Vietnam Youth Union.</p>
+                        <p><strong>Technologies:</strong> Apps Script, Cloud Database, Firebase, AWS, HTML/Tailwind CSS, OpenAI API</p>
+                        <a href="#" class="github-link" target="_blank"><i class="fas fa-external-link-alt"></i>View Demo</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="RAG Chatbot" class="project-img">
+                    <div class="project-info">
+                        <h3>RAG Chatbot for Legal Support</h3>
+                        <p>Designed and implemented a Retrieval-Augmented Generation (RAG) chatbot to provide users with quick access to information on legal rights and gender equality. Utilized AI to process and retrieve relevant legal documents, improving accessibility for underserved communities.</p>
+                        <p><strong>Technologies:</strong> Apps Script, Google Cloud Agent Builder, AWS, Vertex AI</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Dataset Building" class="project-img">
+                    <div class="project-info">
+                        <h3>Building a Dataset and Baseline Model</h3>
+                        <p>Created a multimodal dataset in the field of natural sciences consisting of 20k multiple-choice questions in Mathematics, Physics, Chemistry, and Biology at the high school level. Conducted empirical evaluation of LLMs and LMMs (close source, open source) on the dataset. Training and evaluating baseline models on the collected dataset.</p>
+                        <p><strong>Technologies:</strong> Python, Torch, Git, LLM, LVLM</p>
+                        <p><em>Status: In Progress</em></p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200" alt="UCPC" class="project-img">
+                    <div class="project-info">
+                        <h3>UCPC Organizing Committee</h3>
+                        <p>UCPC is the largest algorithm programming contest at the University of Information Technology-VNUHCM. Participated in the preparation of problems and test cases for the contest.</p>
+                        <p><strong>Tools Used:</strong> C++</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="skills" class="container">
+        <h2>Technical Skills</h2>
+        <h3>Programming Languages</h3>
+        <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">C++</span>
+            <span class="skill">C</span>
+            <span class="skill">Java</span>
+            <span class="skill">SQL</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+        </div>
+        <h3>Technologies & Tools</h3>
+        <div class="skills">
+            <span class="skill">YOLO</span>
+            <span class="skill">easyOCR</span>
+            <span class="skill">LLM models</span>
+            <span class="skill">Git</span>
+            <span class="skill">Docker</span>
+            <span class="skill">PyTorch</span>
+            <span class="skill">TensorFlow</span>
+            <span class="skill">OpenCV</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">Flask</span>
+            <span class="skill">MySQL</span>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <p>phatd142@gmail.com</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <p>0356521948</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Ho Chi Minh City, Vietnam</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/HuuPhat" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Dang Huu Phat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
