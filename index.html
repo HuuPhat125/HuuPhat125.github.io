@@ -1,11 +1,148 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Đặng Hữu Phát</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang cá nhân - Hữu Phát</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #0077cc;
+      --bg-light: #f5f7fa;
+      --bg-dark: #1e1e1e;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: var(--bg-dark);
+        color: var(--text-light);
+      }
+      header {
+        background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      }
+      .card {
+        background: #2e2e2e;
+        color: white;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 60px 20px 40px;
+      background: linear-gradient(to right, #0077cc, #00c6ff);
+      color: white;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-top: -75px;
+    }
+
+    .card {
+      background: white;
+      max-width: 700px;
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 20px;
+      color: var(--main-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #005999;
+    }
+
+    .cv-button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    .cv-button:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      margin: 40px 0 20px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      .avatar {
+        width: 120px;
+        height: 120px;
+      }
+
+      .cv-button {
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Xin chào! Tôi là Đặng Hữu Phát</h1>
-  <p>Đây là trang web cá nhân của tôi được xây dựng bằng GitHub Pages.</p>
+
+  <header>
+    <h1>Đặng Hữu Phát</h1>
+    <p>💻 Data Scientist | 🔬 ML Enthusiast | 🚀 Web Dev</p>
+  </header>
+
+  <img class="avatar" src="./public/phatt.jpg" alt="avatar">
+
+  <div class="card">
+    <p>Chào bạn! Tôi là Hữu Phát, đam mê Machine Learning, AI và xây dựng hệ thống thông minh giúp cải thiện cuộc sống. Mục tiêu của tôi là kết hợp sức mạnh dữ liệu và kỹ thuật phần mềm để tạo ra các sản phẩm có giá trị thực tế.</p>
+
+    <div class="social-links">
+      <a href="https://github.com/HuuPhat125" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/danghuuphat/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:phatd142@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <a class="cv-button" href="./public/huuphat_newcv.pdf" target="_blank">📄 Tải CV</a>
+  </div>
+
+  <footer>
+    © 2025 Đặng Hữu Phát · Built with ❤️ and GitHub Pages
+  </footer>
+
 </body>
 </html>
